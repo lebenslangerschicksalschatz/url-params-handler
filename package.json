@@ -1,0 +1,24 @@
+{
+  "name": "url-params-handler",
+  "version": "0.0.1",
+  "description": "a simple utility for handling url params",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lebenslangerschicksalschatz/url-params-handler.git"
+  },
+  "keywords": [
+    "javascript",
+    "url",
+    "params"
+  ],
+  "author": "Dmytro Furman",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lebenslangerschicksalschatz/url-params-handler/issues"
+  },
+  "homepage": "https://github.com/lebenslangerschicksalschatz/url-params-handler#readme"
+}
