@@ -1,4 +1,10 @@
-export default (data: object, loadmore: boolean) => {
+import { paramsData } from "./utils"
+
+/* function handleArrayReplace( inputArray: string | number | any[]) : string[] {
+
+} */
+
+export default (data: paramsData, loadmore: boolean) => {
   let url = new URL(document.URL)
   let params = url.searchParams
 

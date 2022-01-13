@@ -1,8 +1,4 @@
-import { parseParamValue } from "./utils"
-
-interface paramsData {
-  [key: string]: string | string[]
-}
+import { parseParamValue, paramsData } from "./utils"
 
 export default (): object => {
   let url = new URL(document.URL)

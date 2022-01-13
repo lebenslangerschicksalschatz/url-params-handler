@@ -1,3 +1,7 @@
+export interface paramsData {
+  [key: string]: string | any[]
+}
+
 export const parseParamValue = (value: string): string | string[] => {
   const isArray = value.includes(',')
 
