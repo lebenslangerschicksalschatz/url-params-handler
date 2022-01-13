@@ -1,43 +1,20 @@
-export function getURLparams() : object {
-  let url = new URL(document.URL)
-  let params = url.searchParams
+export const parseParamValue = (value: string): string | string[] => {
+  const isArray = value.includes(',')
 
-  let data = {}
-  const entries = params.keys()
+  if (!isArray) return value
 
-  for(const entry of entries) {
-    let value = params.get(entry)
-    data[entry] = value
-  }
-
-  return data
+  return value.split(',').filter(i => i.length > 0 && i)
 }
 
-export function updateURLparams (data : object, loadmore : boolean) {
-  let url = new URL(document.URL)
-  let params = url.searchParams
-
-  for (const [key, value] of Object.entries(data)) {
-    params.set(key, value)
-
-    if((!value || value === 'all') && key !== 's') params.delete(key)
-  }
-
-  if(!loadmore) params.delete('posts')
-
-  url.search = params.toString();
-  window.history.pushState('', '', url);
-}
-
-export function handleFilter(e) {
+/* export function handleFilter(e) {
   const filter = e.currentTarget
 
   let data = getURLparams()
   data[filter.dataset.type] = filter.value || filter.dataset.value
 
-  if(filter.dataset.type === 'post_id') {
-    for(const key in data) {
-      if(key === 'search') data[key] = ''
+  if (filter.dataset.type === 'post_id') {
+    for (const key in data) {
+      if (key === 'search') data[key] = ''
     }
   }
 
@@ -54,13 +31,13 @@ export function getQueryString() {
 export function deleteUrlParam(param) {
   let data = getURLparams()
 
-  if(param === 'all') {
-    for(const key in data) {
+  if (param === 'all') {
+    for (const key in data) {
       data[key] = null
     }
   }
 
-  if(data[param]?.length) {
+  if (data[param]?.length) {
     data[param] = null
   }
 
@@ -72,8 +49,8 @@ interface loadmoreArgs {
   render: Function,
 }
 
-export function handleLoadmore(args : loadmoreArgs) {
-  const {container, render} = args
+export function handleLoadmore(args: loadmoreArgs) {
+  const { container, render } = args
   const loadmoreBtn = document.querySelector('[data-action="loadmore"]')
 
   loadmoreBtn.addEventListener('click', () => {
@@ -81,14 +58,12 @@ export function handleLoadmore(args : loadmoreArgs) {
 
     let data = getURLparams()
 
-    /* data['posts'] = data.posts
+    data['posts'] = data.posts
       ? parseFloat(data.posts) + initialPosts
-      : initialPosts * 2 */
+      : initialPosts * 2
 
-    /* update posts param (loadmore = true) */
     updateURLparams(data, true)
-    /* append new posts */
     render()
   })
 }
-
+ */
