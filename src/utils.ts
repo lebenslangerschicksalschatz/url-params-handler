@@ -1,5 +1,15 @@
-export interface paramsData {
-  [key: string]: string | any[]
+export interface paramsOutputData {
+  [key: string]: string | string[]
+}
+
+export interface paramsInputData {
+  [key: string]: string | null
+}
+
+export interface updateParams {
+  key: string,
+  value: string | number,
+  action: 'replace' | 'add',
 }
 
 export const parseParamValue = (value: string): string | string[] => {

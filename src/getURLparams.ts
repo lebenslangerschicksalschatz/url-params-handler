@@ -1,12 +1,12 @@
-import { parseParamValue, paramsData } from "./utils"
+import { parseParamValue, paramsOutputData } from "./utils"
 
-export default (): object => {
+export default (): paramsOutputData => {
   let url = new URL(document.URL)
   let params = url.searchParams
 
   const entries = params.keys()
 
-  let data: paramsData = {}
+  let data: paramsOutputData = {}
 
   for (const entry of entries) {
     let value = params.get(entry)
