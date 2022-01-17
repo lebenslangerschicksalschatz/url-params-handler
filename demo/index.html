@@ -3,14 +3,73 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta
+    http-equiv="X-UA-Compatible"
+    content="IE=edge"
+  >
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
   <title>URL Params Demo</title>
 </head>
 
 <body>
+  <label>
+    text
+    <input
+      type="text"
+      data-url-params
+      data-params-key="inputText"
+      data-params-action="replace"
+    >
+  </label>
 
-  <script type="module" src="index.js"></script>
+  <label>
+    checkbox
+    <input
+      type="checkbox"
+      data-url-params
+      data-params-key="inputCheckRaio"
+      data-params-action="add"
+      value="checkbox-value"
+    >
+  </label>
+
+  <label>
+    radio
+    <input
+      type="radio"
+      data-url-params
+      data-params-key="inputCheckRaio"
+      data-params-action="add"
+      value="radio-value"
+    >
+  </label>
+
+  <div
+    data-url-params
+    data-params-action="replace"
+    data-params-key="divEl"
+    data-params-value="div-value"
+  >
+    DIV ELEMENT
+  </div>
+
+  <select
+    data-url-params
+    data-params-key="optionFilter"
+  >
+    <option value>option1</option>
+    <option value="option2">option2</option>
+    <option value="option3">option3</option>
+    <option value="option4">option4</option>
+  </select>
+
+  <script
+    type="module"
+    src="index.js"
+  ></script>
 </body>
 
 </html>

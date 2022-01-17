@@ -9,7 +9,7 @@ export interface paramsInputData {
 export interface updateParams {
   key: string,
   value: string | number,
-  action: 'replace' | 'add',
+  action: 'replace' | 'add' | 'preserve',
 }
 
 export const parseParamValue = (value: string): string | string[] => {

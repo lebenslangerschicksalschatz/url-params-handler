@@ -1,12 +1,5 @@
-import getURLparams from "../dist/getURLparams"
-import updateURLparams from "../dist/updateURLparams"
+/* import getURLparams from "../dist/getURLparams"
+import updateURLparams from "../dist/updateURLparams" */
+import initHandlers from "../dist/initHandlers"
 
-let newParam = {
-  key: 'array',
-  value: 2,
-  action: 'add',
-}
-
-updateURLparams(newParam)
-
-console.log(getURLparams())
+initHandlers()
