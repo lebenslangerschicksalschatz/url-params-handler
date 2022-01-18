@@ -1,6 +1,38 @@
 import getURLparams from "./getURLparams"
 import updateURLparams from "./updateURLparams"
 
+function syncElementsWithParams() {
+  const elements = document.querySelectorAll<HTMLElement>('[data-url-params]')
+  const data = getURLparams()
+
+  console.log(data)
+
+  elements?.forEach(el => {
+    const { tagName, type, dataset } = (<any>el)
+
+    const isInput = tagName === 'INPUT' || tagName === 'SELECT'
+    const isOnOffBox = type === 'radio' || type === 'checkbox'
+
+    const currentKey = dataset.paramsKey
+    const currentValue = (<any>el).value || dataset.paramsValue
+
+    const match: string | string[] | boolean = data[currentKey] ?? false
+    const matchedValue = Array.isArray(match) ? match.some(i => i === currentValue) : match === currentValue
+
+    if (!match) {
+      if (isInput && !isOnOffBox) (<any>el).value = ''
+      if (isOnOffBox) (<any>el).checked = false
+      el.classList.remove('active')
+
+    } else {
+      if (isInput && !isOnOffBox) (<any>el).value = currentValue
+      if (matchedValue && isOnOffBox) (<any>el).checked = true
+
+      matchedValue || (isInput && !isOnOffBox) ? el.classList.add('active') : el.classList.remove('active')
+    }
+  })
+}
+
 function addParamsListeners(element: HTMLElement) {
   const { type, tagName, dataset } = (<any>element)
   const isInput = tagName === 'INPUT'
@@ -18,33 +50,16 @@ function addParamsListeners(element: HTMLElement) {
       key: dataset.paramsKey,
       action: dataset.paramsAction,
     })
+
+    syncElementsWithParams()
   })
 }
 
-function syncElementsWithParams(element: HTMLElement) {
-  const currentData = getURLparams()
-  const { tagName, type, dataset } = (<any>element)
-  const elementValue = (<any>element).value || dataset.paramsValue
 
-  const isInput = tagName === 'INPUT' || tagName === 'SELECT'
-  const isOnOffBox = type === 'radio' || type === 'checkbox'
-
-  const match: string | string[] | boolean = currentData[dataset.paramsKey] ?? false
-  const matchedValue = Array.isArray(match) ? match.includes(elementValue) : match === elementValue
-
-  if (match && matchedValue) {
-    if (isInput && !isOnOffBox) (<any>element).value = match
-    if (isOnOffBox) (<any>element).checked = !(<any>element).checked
-
-    element.classList.add('active')
-  }
-}
 
 export default () => {
   const elements = document.querySelectorAll<HTMLElement>('[data-url-params]')
 
-  elements && elements.forEach(el => {
-    addParamsListeners(el)
-    syncElementsWithParams(el)
-  })
+  elements?.forEach(el => addParamsListeners(el))
+  syncElementsWithParams()
 }

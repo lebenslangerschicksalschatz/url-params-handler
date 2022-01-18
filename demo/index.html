@@ -3,73 +3,127 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta
-    http-equiv="X-UA-Compatible"
-    content="IE=edge"
-  >
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+
   <title>URL Params Demo</title>
 </head>
 
 <body>
-  <label>
-    text
-    <input
-      type="text"
+  <section>
+    <h2>Text input: </h2>
+    <div class="text-field">
+      <input
+        type="text"
+        id="name"
+        name="name"
+        autocomplete="off"
+        data-url-params
+        data-params-key="name"
+        data-params-action="replace" />
+      <label for="name"><span>Your name..</span></label>
+    </div>
+  </section>
+  <!-- checkbox multiple choices -->
+  <section>
+    <h2>Multiple checkbox values: </h2>
+    <div class="field">
+      <input
+        type="checkbox"
+        id="case-studies"
+        data-url-params
+        data-params-key="checkbox"
+        data-params-action="add"
+        value="case-studies" />
+      <label for="case-studies">Case Studies</label>
+    </div>
+    <div class="field">
+      <input
+        type="checkbox"
+        id="insights"
+        data-url-params
+        data-params-key="checkbox"
+        data-params-action="add"
+        value="insights" />
+      <label for="insights">Insights</label>
+    </div>
+    <div class="field">
+      <input
+        type="checkbox"
+        id="blog"
+        data-url-params
+        data-params-key="checkbox"
+        data-params-action="add"
+        value="blog" />
+      <label for="blog">Blog</label>
+    </div>
+    <div class="field">
+      <input
+        type="checkbox"
+        id="news"
+        data-url-params
+        data-params-key="checkbox"
+        data-params-action="add"
+        value="news" />
+      <label for="news">News</label>
+    </div>
+  </section>
+  <!-- single radio button choice -->
+  <section>
+    <h2>Radio buttons:</h2>
+
+    <div class="field">
+      <input
+        id="yes"
+        value="yes"
+        type="radio"
+        name="radio"
+        data-url-params
+        data-params-key="radio" />
+      <label for="yes">Yes</label>
+    </div>
+    <div class="field">
+      <input
+        id="no"
+        value="no"
+        type="radio"
+        name="radio"
+        data-url-params
+        data-params-key="radio" />
+      <label for="no">No</label>
+    </div>
+  </section>
+  <!-- other elements -->
+  <section>
+    <h2>Other HTML elements: </h2>
+    <div class="button"
       data-url-params
-      data-params-key="inputText"
+      data-params-key="category"
       data-params-action="replace"
-    >
-  </label>
-
-  <label>
-    checkbox
-    <input
-      type="checkbox"
+      data-params-value="videos">
+      Videos
+    </div>
+    <div class="button"
       data-url-params
-      data-params-key="inputCheckRaio"
-      data-params-action="add"
-      value="checkbox-value"
-    >
-  </label>
-
-  <label>
-    radio
-    <input
-      type="radio"
+      data-params-key="category"
+      data-params-action="replace"
+      data-params-value="articles">
+      Articles
+    </div>
+    <div class="button"
       data-url-params
-      data-params-key="inputCheckRaio"
-      data-params-action="add"
-      value="radio-value"
-    >
-  </label>
+      data-params-key="category"
+      data-params-action="replace"
+      data-params-value="applications">
+      Applications
+    </div>
+  </section>
 
-  <div
-    data-url-params
-    data-params-action="replace"
-    data-params-key="divEl"
-    data-params-value="div-value"
-  >
-    DIV ELEMENT
-  </div>
-
-  <select
-    data-url-params
-    data-params-key="optionFilter"
-  >
-    <option value>option1</option>
-    <option value="option2">option2</option>
-    <option value="option3">option3</option>
-    <option value="option4">option4</option>
-  </select>
-
-  <script
-    type="module"
-    src="index.js"
-  ></script>
+  <script type="module" src="index.js"></script>
 </body>
 
 </html>
