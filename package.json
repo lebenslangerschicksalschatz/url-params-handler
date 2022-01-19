@@ -2,14 +2,13 @@
   "name": "url-params-handler",
   "version": "0.0.6",
   "description": "a simple utility for handling url params",
-  "main": "index.min.js",
+  "main": "public/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "minify": "uglifyjs dist/initHandlers.js dist/getURLparams.js dist/updateURLparams.js dist/utils.js -o index.min.js",
     "build-demo": "parcel demo/index.html",
     "watch-ts": "tsc -w",
     "start": "concurrently \"npm run build-demo\" \"npm run watch-ts\"",
-    "build": "tsc --build && npm run minify"
+    "build": "tsc --build"
   },
   "repository": {
     "type": "git",

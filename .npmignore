@@ -1,7 +1,6 @@
 node_modules
 .parcel-cache
 demo
-dist
 src
 tsconfig.json
 package.json
