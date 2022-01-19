@@ -5,8 +5,6 @@ function syncElementsWithParams() {
   const elements = document.querySelectorAll<HTMLElement>('[data-url-params]')
   const data = getURLparams()
 
-  console.log(data)
-
   elements?.forEach(el => {
     const { tagName, type, dataset } = (<any>el)
 

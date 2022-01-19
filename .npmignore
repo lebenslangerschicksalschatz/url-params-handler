@@ -1,0 +1,7 @@
+node_modules
+.parcel-cache
+demo
+src
+tsconfig.json
+package.json
+package-lock.json
