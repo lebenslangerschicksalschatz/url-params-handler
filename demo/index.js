@@ -1,1 +1,3 @@
-import "../dist/initHandlers.js"
+import initHandlers from "../dist/initHandlers.js"
+
+initHandlers()
