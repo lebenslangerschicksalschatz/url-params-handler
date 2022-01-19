@@ -1,6 +1,6 @@
 {
   "name": "url-params-handler",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "a simple utility for handling url params",
   "main": "public/index.js",
   "scripts": {
