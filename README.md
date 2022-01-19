@@ -76,3 +76,18 @@ updateURLparams({
   action: "replace",
 })
 ```
+
+## Demo
+
+To run the dev enviroment for demo
+
+```sh
+$ git clone https://github.com/lebenslangerschicksalschatz/url-params-handler.git
+
+CD url-params-handler
+
+$ npm i
+$ npm i -g parcel
+
+$ npm run start
+```

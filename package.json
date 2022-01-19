@@ -27,7 +27,6 @@
   "homepage": "https://github.com/lebenslangerschicksalschatz/url-params-handler#readme",
   "devDependencies": {
     "concurrently": "^7.0.0",
-    "parcel": "^2.2.0",
-    "uglify-js": "^3.14.5"
+    "parcel": "^2.2.0"
   }
 }
