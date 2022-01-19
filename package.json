@@ -1,13 +1,15 @@
 {
   "name": "url-params-handler",
-  "version": "0.0.4",
+  "version": "0.0.6",
   "description": "a simple utility for handling url params",
-  "main": "index.js",
+  "main": "index.min.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "minify": "uglifyjs dist/initHandlers.js dist/getURLparams.js dist/updateURLparams.js dist/utils.js -o index.min.js",
     "build-demo": "parcel demo/index.html",
     "watch-ts": "tsc -w",
-    "start": "concurrently \"npm run build-demo\" \"npm run watch-ts\""
+    "start": "concurrently \"npm run build-demo\" \"npm run watch-ts\"",
+    "build": "tsc --build && npm run minify"
   },
   "repository": {
     "type": "git",
@@ -26,6 +28,7 @@
   "homepage": "https://github.com/lebenslangerschicksalschatz/url-params-handler#readme",
   "devDependencies": {
     "concurrently": "^7.0.0",
-    "parcel": "^2.2.0"
+    "parcel": "^2.2.0",
+    "uglify-js": "^3.14.5"
   }
 }

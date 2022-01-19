@@ -53,11 +53,9 @@ function addParamsListeners(element: HTMLElement) {
   })
 }
 
-
-
-export default () => {
+module.exports = (function() {
   const elements = document.querySelectorAll<HTMLElement>('[data-url-params]')
 
   elements?.forEach(el => addParamsListeners(el))
   syncElementsWithParams()
-}
+})()
